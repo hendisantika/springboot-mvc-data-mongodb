@@ -25,6 +25,12 @@ public class Product {
     public Product() {
     }
 
+    public Product(String prodName, String prodDesc, Double prodPrice) {
+        this.prodName = prodName;
+        this.prodDesc = prodDesc;
+        this.prodPrice = prodPrice;
+    }
+
     public Product(String prodName, String prodDesc, Double prodPrice, String prodImage) {
         this.prodName = prodName;
         this.prodDesc = prodDesc;
