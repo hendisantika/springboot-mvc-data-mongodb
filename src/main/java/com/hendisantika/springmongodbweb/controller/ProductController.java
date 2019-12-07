@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.Optional;
+
 /**
  * Created by IntelliJ IDEA.
  * Project : springboot-mvc-data-mongodb
@@ -55,27 +57,28 @@ public class ProductController {
 
     @GetMapping("/show/{id}")
     public String show(@PathVariable String id, Model model) {
-        model.addAttribute("product", productRepository.findOne(id));
+        model.addAttribute("product", productRepository.findById(id));
         return "show";
     }
 
     @GetMapping("/delete")
     public String delete(@RequestParam String id) {
-        Product product = productRepository.findOne(id);
-        productRepository.delete(product);
+        Optional<Product> product = productRepository.findById(id);
+        productRepository.delete(product.get());
 
         return "redirect:/product";
     }
 
     @GetMapping("/edit/{id}")
     public String edit(@PathVariable String id, Model model) {
-        model.addAttribute("product", productRepository.findOne(id));
+        model.addAttribute("product", productRepository.findById(id));
         return "edit";
     }
 
     @GetMapping("/update")
     public String update(@RequestParam String id, @RequestParam String prodName, @RequestParam String prodDesc, @RequestParam Double prodPrice, @RequestParam String prodImage) {
-        Product product = productRepository.findOne(id);
+        Optional<Product> productOpt = productRepository.findById(id);
+        Product product = productOpt.get();
         product.setProdName(prodName);
         product.setProdDesc(prodDesc);
         product.setProdPrice(prodPrice);
