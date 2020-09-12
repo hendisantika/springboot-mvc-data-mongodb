@@ -57,7 +57,7 @@ public class ProductController {
 
     @GetMapping("/show/{id}")
     public String show(@PathVariable String id, Model model) {
-        model.addAttribute("product", productRepository.findById(id));
+        model.addAttribute("product", productRepository.findById(id).get());
         return "show";
     }
 
