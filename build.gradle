@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        springBootVersion = '2.4.0.RELEASE'
+        springBootVersion = '2.3.3.RELEASE'
     }
     repositories {
         mavenCentral()
@@ -28,6 +28,7 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-data-mongodb')
     compile('org.springframework.boot:spring-boot-starter-thymeleaf')
     compile('org.springframework.boot:spring-boot-starter-web')
+    compile 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:2.4.1'
     compile('org.webjars:bootstrap:3.3.7')
     compile('org.springframework.boot:spring-boot-starter')
     testCompile('org.springframework.boot:spring-boot-starter-test')
