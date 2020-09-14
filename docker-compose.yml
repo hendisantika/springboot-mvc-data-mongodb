@@ -1,0 +1,18 @@
+version: '2'
+services:
+  mongodb:
+    container_name: products-datastore
+    image: mongo:3.2
+    command: mongod --smallfiles
+  web:
+    container_name: products-service
+    build: build/libs
+    image: products-service-image
+    depends_on:
+      - mongodb
+    ports:
+      - "8080:8080"
+    links:
+      - mongodb
+    environment:
+      SPRING_DATA_MONGODB_URI: mongodb://mongodb/products
