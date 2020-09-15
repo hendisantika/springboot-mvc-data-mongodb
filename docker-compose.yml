@@ -1,4 +1,4 @@
-version: '2'
+version: '3.1'
 services:
   mongodb:
     container_name: products-datastore
@@ -6,7 +6,9 @@ services:
     command: mongod --smallfiles
   web:
     container_name: products-service
-    build: build/libs
+    build:
+      context: ./
+      dockerfile: Dockerfile
     image: products-service-image
     depends_on:
       - mongodb
