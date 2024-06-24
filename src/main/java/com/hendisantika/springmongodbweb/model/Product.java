@@ -1,5 +1,9 @@
 package com.hendisantika.springmongodbweb.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -14,6 +18,10 @@ import org.springframework.data.mongodb.core.mapping.Document;
  * To change this template use File | Settings | File Templates.
  */
 @Document(collection = "products")
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Product {
     @Id
     String id;
@@ -22,8 +30,6 @@ public class Product {
     Double prodPrice;
     String prodImage;
 
-    public Product() {
-    }
 
     public Product(String prodName, String prodDesc, Double prodPrice) {
         this.prodName = prodName;
@@ -37,45 +43,4 @@ public class Product {
         this.prodPrice = prodPrice;
         this.prodImage = prodImage;
     }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getProdName() {
-        return prodName;
-    }
-
-    public void setProdName(String prodName) {
-        this.prodName = prodName;
-    }
-
-    public String getProdDesc() {
-        return prodDesc;
-    }
-
-    public void setProdDesc(String prodDesc) {
-        this.prodDesc = prodDesc;
-    }
-
-    public Double getProdPrice() {
-        return prodPrice;
-    }
-
-    public void setProdPrice(Double prodPrice) {
-        this.prodPrice = prodPrice;
-    }
-
-    public String getProdImage() {
-        return prodImage;
-    }
-
-    public void setProdImage(String prodImage) {
-        this.prodImage = prodImage;
-    }
-
 }

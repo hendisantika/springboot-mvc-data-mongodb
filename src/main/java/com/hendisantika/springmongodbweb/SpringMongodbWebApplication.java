@@ -30,9 +30,9 @@ public class SpringMongodbWebApplication {
     CommandLineRunner initialize(ProductRepository repo) {
         return args -> {
             repo.deleteAll();
-            repo.save(new Product("Intel Core i3", "Intel Core i3 Processor", 200.0, "https://www.links.hr/content/images/thumbs/004/0044431_procesor-intel-core-i3-8100-s-1151-3-6ghz-6mb-cache-gpu-quad-core-050600063.png"));
-            repo.save(new Product("Intel Core i5", "Intel Core i4 Processor", 200.0, "http://www.murdockcruz.com/wp-content/uploads/2017/08/Intel-Core-i5-7200U-3.jpg"));
-            repo.save(new Product("Intel Core i7", "Intel Core i7 Processor", 200.0, "https://www.notebookcheck.net/uploads/tx_nbc2/corei7_09.png"));
+            repo.save(new Product("Intel Core i3", "Intel Core i3 Processor", 200.0, "https://upload.wikimedia.org/wikipedia/commons/8/88/Intel_Core_i3_2020_logo.svg"));
+            repo.save(new Product("Intel Core i5", "Intel Core i5 Processor", 200.0, "https://upload.wikimedia.org/wikipedia/commons/d/d0/Intel_Core_i5_2020_logo.svg"));
+            repo.save(new Product("Intel Core i7", "Intel Core i7 Processor", 200.0, "https://upload.wikimedia.org/wikipedia/commons/c/ce/Intel_Core_i7_Logo_2020.png"));
         };
 
     }

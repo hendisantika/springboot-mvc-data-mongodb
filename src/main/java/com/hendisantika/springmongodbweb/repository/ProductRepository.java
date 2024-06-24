@@ -1,7 +1,7 @@
 package com.hendisantika.springmongodbweb.repository;
 
 import com.hendisantika.springmongodbweb.model.Product;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.mongodb.repository.MongoRepository;
 
 /**
  * Created by IntelliJ IDEA.
@@ -13,7 +13,7 @@ import org.springframework.data.repository.CrudRepository;
  * Time: 07.47
  * To change this template use File | Settings | File Templates.
  */
-public interface ProductRepository extends CrudRepository<Product, String> {
+public interface ProductRepository extends MongoRepository<Product, String> {
     @Override
     void delete(Product deleted);
 }

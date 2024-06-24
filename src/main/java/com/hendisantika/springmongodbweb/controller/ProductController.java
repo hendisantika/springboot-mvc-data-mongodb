@@ -2,6 +2,7 @@ package com.hendisantika.springmongodbweb.controller;
 
 import com.hendisantika.springmongodbweb.model.Product;
 import com.hendisantika.springmongodbweb.repository.ProductRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,10 +23,10 @@ import java.util.Optional;
  * To change this template use File | Settings | File Templates.
  */
 @Controller
+@RequiredArgsConstructor(onConstructor_ = {@Autowired})
 public class ProductController {
 
-    @Autowired
-    ProductRepository productRepository;
+    private final ProductRepository productRepository;
 
     @GetMapping("/")
     public String index() {
@@ -57,7 +58,9 @@ public class ProductController {
 
     @GetMapping("/show/{id}")
     public String show(@PathVariable String id, Model model) {
-        model.addAttribute("product", productRepository.findById(id));
+        Optional<Product> productOpt = productRepository.findById(id);
+        Product product = productOpt.get();
+        model.addAttribute("product", product);
         return "show";
     }
 
